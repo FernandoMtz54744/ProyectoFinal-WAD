@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Nixie+One&family=Raleway+Dots&family=Source+Sans+Pro&family=Special+Elite&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.mantel{
+    min-width: 17%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../imagenes/mantel.jpg");
+    background-repeat: repeat-y;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+.platillos{
+    background-color: transparent;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(80px, auto);
+    padding: 1em;
+    width: 80%;
+    
+   
+}
+
+.platillo{
+    background-color: white;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.imgPlatilloContenedor{    
+    padding: 2em;    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.imgPlatillo{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.titulo{
+    font-size: 40px;
+    color: #EFE9E9;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    
+}
+
+.nombrePlatillo{
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.restaurantePlatillo{
+    color: gray;
+    font-size: small;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.verPlatillo{
+    color: red;
+    font-size: small;
+    font-family: 'Anton', sans-serif;
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,64 @@
+/*Estilos para el index*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Nixie+One&family=Raleway+Dots&family=Source+Sans+Pro&family=Special+Elite&display=swap');
+
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../imagenes/mesa4.jpg");
+    background-repeat: repeat-y;
+    height: 100vh;
+    padding-top: 5%;
+    background-attachment: fixed;
+  
+}
+
+.categoria :hover{
+    color: black;
+    opacity: 45%;
+    display: inline;
+    
+}
+
+.aCategoria{
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.plaContainer{
+    display: flex;
+    flex-direction: row;
+    height: 25vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: min-content;
+}
+
+.texto{
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+
+}
+.antojo{
+    font-size: 45px;
+    color: #EFE9E9;
+    font-family: 'Anton', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.iniciaSesion{
+    font-size: 15px;
+    color: #EFE9E9;
+    font-family: 'Source-Sans-Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+}
