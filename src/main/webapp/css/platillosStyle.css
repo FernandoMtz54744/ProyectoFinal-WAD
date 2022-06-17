@@ -14,6 +14,7 @@ body{
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../imagenes/mantel.jpg");
     background-repeat: repeat-y;
     display: flex;
+    height: 100vh;
     justify-content: center;
     align-items: center; 
     background-attachment: fixed;
