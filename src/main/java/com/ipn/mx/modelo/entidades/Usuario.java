@@ -1,4 +1,4 @@
-package com.ipn.mx.modelo.entidades;
+    package com.ipn.mx.modelo.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
