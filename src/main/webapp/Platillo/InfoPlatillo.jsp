@@ -80,7 +80,7 @@
                     <p class="text-center">Inicia sesion para dejar un comentario</p>
                 <%}else{%>               
                     <p class="letra">Queremos conocer tu opinión acerca del platillo. Cuentanos que tal te pareció.</p>
-                    <form action="/ProyectoFinal/ComentarioServlet" method="POST">
+                    <form action="/ComentarioServlet" method="POST">
                         <input type="text" name="idUsuario" id="idUsuario" value="<%=usuario.getIdUsuario()%>" hidden>
                         <input type="text" name="idPlatillo" id="idPlatillo" value="<%=idPlatillo%>" hidden>
                         <div class="form-check form-check-inline">
