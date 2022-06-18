@@ -126,17 +126,17 @@ public class PlatilloDao {
         Platillo p = new Platillo();
         PlatilloDao dao = new PlatilloDao();
         
-        p.setNombre("Chilaquiles verdes con pollo");
-        p.setDescripcion("Los chilaquiles verdes con pollo van acompañados de cebolla queso y crema. Es posible completarlo con fruta(piña o sandia) o jugo(toronja o naranja) ");
-        p.setNombreFoto("chilaquiles.png.jpg");
+        p.setNombre("Pizza cuatro quesos");
+        p.setDescripcion("¡Artesanalmente italiana! Queso mozarella, parmesano, gorgonzola y queso cenizo de cabra, sobre salsa pomodoro con cebollín finamente picado.");
+        p.setNombreFoto("pizza.jpg");
         try{
-            p.setFoto(Files.readAllBytes(new File("D:\\Fer_Mtz\\Desktop\\3CM2\\WAD\\Deploys-Heroku\\ProyectoFinal-WAD\\src\\main\\webapp\\imagenes\\imgPlatillos\\chilaquiles.png").toPath()));
+            p.setFoto(Files.readAllBytes(new File("D:\\Fer_Mtz\\Desktop\\td.png").toPath()));
         }catch(Exception e){
             System.out.println("Error al subir foto");
         }
         
-        p.setIdRestaurante(1);
-        p.setIdCategoria(11);
+        p.setIdRestaurante(6);
+        p.setIdCategoria(3);
         
         dao.create(p);
         //System.out.println(dao.readOnePlatilloView(2));

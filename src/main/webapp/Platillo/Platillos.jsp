@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ipn.mx.modelo.entidades.PlatilloView"%>
 <%@page import="com.ipn.mx.modelo.dao.PlatilloDao" %>
@@ -12,12 +13,15 @@
     int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
     String categoria  = request.getParameter("categoria");
     PlatilloDao platilloDao = new PlatilloDao();
-    List<PlatilloView> platillos = platilloDao.readAllPlatilloView();
-    for(int i=0; i<platillos.size(); i++){
-        if(platillos.get(i).getIdCategoria() != idCategoria){
-            platillos.remove(i);
+    List<PlatilloView> platillosTemp = platilloDao.readAllPlatilloView();
+    ArrayList<PlatilloView> platillos = new ArrayList<PlatilloView>();
+    for(int i=0; i < platillosTemp.size(); i++){
+        if(platillosTemp.get(i).getIdCategoria() == idCategoria){
+            platillos.add(platillosTemp.get(i));
         }
     }
+    
+    System.out.println("Terminado");
 %>
 <!DOCTYPE html>
 <html lang="en">
