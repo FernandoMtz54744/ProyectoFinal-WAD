@@ -32,7 +32,7 @@ public class Platillo {
     @Column(name = "nombre", length =50, nullable=false)
     private String nombre;
     
-    @Column(name = "descripcion", length =50, nullable=false)
+    @Column(name = "descripcion", length =500, nullable=false)
     private String descripcion;
     
     @Column(name = "foto")

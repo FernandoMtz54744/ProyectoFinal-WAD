@@ -10,7 +10,7 @@ create table Restaurante(
     nombre varchar(50) not null,
     correo varchar(50) not null, 
     pass varchar(50) not null, 
-    descripcion varchar(100) not null, 
+    descripcion varchar(500) not null, 
     web varchar(50) not null, 
     horario varchar(50) not null,
     telefono varchar(50) not null
@@ -24,7 +24,7 @@ create table Categoria(
 create table Platillo(
 	idPlatillo SERIAL primary key not null,
     nombre varchar(50) not null, 
-    descripcion varchar(50) not null,
+    descripcion varchar(500) not null,
     foto bytea,
     nombreFoto varchar(50) not null,
     idRestaurante int not null,

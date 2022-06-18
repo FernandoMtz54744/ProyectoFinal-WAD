@@ -36,7 +36,7 @@ public class Restaurante {
     @Column(name = "pass", length =50, nullable=false)
     private String pass;
     
-    @Column(name = "descripcion", length =100, nullable=false)
+    @Column(name = "descripcion", length =500, nullable=false)
     private String descripcion;
     
     @Column(name = "web", length =50, nullable=false)
