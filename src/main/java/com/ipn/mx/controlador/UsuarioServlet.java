@@ -3,13 +3,19 @@ package com.ipn.mx.controlador;
 import com.ipn.mx.modelo.dao.UsuarioDao;
 import com.ipn.mx.modelo.entidades.Usuario;
 import jakarta.servlet.RequestDispatcher;
+import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperRunManager;
 
 /**
  * @author Cortes Lopez Jaime Alejandro
@@ -38,6 +44,8 @@ public class UsuarioServlet extends HttpServlet {
             registrarUsuario(request, response);
         }else if(accion.equals("Login")){
             login(request,response);
+        }else if(accion.equals("reporte")){
+            mostrarReporte(request,response);
         }
        
     }
@@ -118,8 +126,33 @@ public class UsuarioServlet extends HttpServlet {
             }catch(Exception e){
                 System.out.println("Error login en UsuarioServlet");
             }
-            
-       
+    }
     
+     private void mostrarReporte(HttpServletRequest request, HttpServletResponse response){
+        UsuarioDao dao = new UsuarioDao();
+       ServletOutputStream sos = null;
+       try{
+            sos = response.getOutputStream(); 
+            File reporte = new File(getServletConfig().getServletContext().getRealPath("/reportes/ReportePlatillos.jasper"));   
+            byte[] b = JasperRunManager.runReportToPdf(reporte.getPath(), null, dao.obtenerConexion()); 
+            response.setContentType("application/pdf");
+            response.setContentLength(b.length);
+            sos.write(b,0,b.length);
+            sos.flush();
+            sos.close();
+        }catch(IOException e){
+            System.out.println("Error al mostrar reporte");
+            e.getStackTrace();
+       } catch (JRException ex) {
+            Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+           try{
+               sos.close();
+           }catch(IOException ex){
+                System.out.println("Error al cerrar sos");
+           }
+       }
+       
+
     }
 }

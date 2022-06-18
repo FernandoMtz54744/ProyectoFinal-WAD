@@ -2,6 +2,9 @@ package com.ipn.mx.modelo.dao;
 
 import com.ipn.mx.modelo.entidades.Usuario;
 import com.ipn.mx.utilerias.HibernateUtil;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -67,6 +70,22 @@ public class UsuarioDao {
             }
         }
         return usuarioLogin;
+    }
+    
+    private Connection conexion;
+    public Connection obtenerConexion() {
+        //obtener conexion
+        String usuario = "dzcgkwhyvlgvpu";
+        String clave = "ccac6815fa6a6b8438d9888b0940e3c7f71a48d7e310e4152a80faee024928d9";
+        String url = "jdbc:postgresql://ec2-54-147-33-38.compute-1.amazonaws.com:5432/d2hqg08386du81";
+        String driverBD = "org.postgresql.Driver";
+        try {
+            Class.forName(driverBD);
+            conexion = DriverManager.getConnection(url, usuario, clave);
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println("Error obtener conexion " + ex.getMessage());
+        }
+        return conexion;
     }
     
      public static void main(String[] args) { //Este main se puede eliminar, es solo de prueba
