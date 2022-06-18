@@ -62,3 +62,10 @@ body{
     margin: 0;
     padding: 0;
 }
+
+.reporteLink:link{
+    color: white;
+    text-decoration: underline;
+    font-family: 'Source-Sans-Pro', sans-serif;
+    font-size: 15px;
+}
