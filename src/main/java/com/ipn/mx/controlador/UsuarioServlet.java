@@ -2,6 +2,7 @@ package com.ipn.mx.controlador;
 
 import com.ipn.mx.modelo.dao.UsuarioDao;
 import com.ipn.mx.modelo.entidades.Usuario;
+import com.ipn.mx.utilerias.EnviarMail;
 import jakarta.servlet.RequestDispatcher;
 import java.io.File;
 import java.io.IOException;
@@ -98,6 +99,8 @@ public class UsuarioServlet extends HttpServlet {
         dao.create(u);
 
         try {
+            EnviarMail mail = new EnviarMail();
+            mail.enviarMail(u.getCorreo(), "Bienvenido " + u.getUsuario(), "Tu correo se ha registrado correctamente en nuestra aplicación https://pf-wad-fej.herokuapp.com/");
             response.sendRedirect(request.getContextPath() + "/Usuario/loginUsuario.html");
         } catch (IOException ex) {
             System.out.println("Error registrarUsuario en UsuarioServlet: " + ex.getMessage());

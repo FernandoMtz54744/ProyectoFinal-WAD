@@ -1,6 +1,7 @@
 package com.ipn.mx.modelo.dao;
 
 import com.ipn.mx.modelo.entidades.Usuario;
+import com.ipn.mx.utilerias.EnviarMail;
 import com.ipn.mx.utilerias.HibernateUtil;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -94,7 +95,8 @@ public class UsuarioDao {
         u.setUsuario("Fernando");
         u.setCorreo("fer_f@outlook.com");
         u.setPass("pass");
-        dao.create(u);
+        //dao.create(u);
+       
     } 
     
 }

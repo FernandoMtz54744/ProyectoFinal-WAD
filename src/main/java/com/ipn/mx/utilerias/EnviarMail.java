@@ -39,7 +39,7 @@ public class EnviarMail {
             message.setText(textoCorreo);
             // envio Mensaje.
             Transport trasporte = session.getTransport("smtp");
-            trasporte.connect("correo@gmail.com", "clave");
+            trasporte.connect("escom.fej@gmail.com", "ezzynayijxdmtsdo");
             trasporte.sendMessage(message, message.getAllRecipients());
             // Cierre.
             trasporte.close();

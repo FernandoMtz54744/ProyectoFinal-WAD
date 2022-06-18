@@ -1,28 +1,31 @@
 
 
-body
-  background linear-gradient(45deg, #BB1881, #F88B50)
-  font-family sans-serif
+body{
+  background: linear-gradient(45deg, #BB1881, #F88B50);
+  font-family: sans-serif
+}
+.contact-wrapper{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
 
-.contact-wrapper
-  position absolute
-  top 50%
-  transform translateY(-50%)
-  width 100%
-  
-.flip-card
-  border-radius 0.5em
-  position fixed
-  top 1em
-  left 1em
-  width 5em
-  padding 0.5em
-  border 0.1em solid #fff
-  color #fff
-  text-align center
-  cursor pointer
-  z-index 9
-.envelope
+.flip-card{
+  border-radius: 0.5em;
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  width: 5em;
+  padding: 0.5em;
+  border: 0.1em solid #fff;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.envelope{
   position relative
   display block
   width 30em
