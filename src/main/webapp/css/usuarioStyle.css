@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Nixie+One&family=Raleway+Dots&family=Source+Sans+Pro&family=Special+Elite&display=swap');
+
 /* Estilo del login y registro */
+body{
+  font-family: 'Source-Sans-Pro', sans-serif;
+}
+
 form{
   border: 1px solid black;
   padding: 3rem 4rem 4rem 3rem;
