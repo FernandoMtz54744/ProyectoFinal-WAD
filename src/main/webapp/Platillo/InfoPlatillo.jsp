@@ -30,44 +30,96 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+         <link rel="stylesheet" href="../css/platilloStyle.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Platillo</title>
     </head>
-    <body>
-        <header>Bienvenido: <%=usuario.getUsuario()%></header>
-        <main>
-            <h1>Datos del platillo</h1>
-            <%String encode = Base64.getEncoder().encodeToString(platilloView.getFoto());%>
-            <img src="data:image/jpeg;base64,<%=encode%>"/>
-            <div><%=platilloView.getNombrePlatillo()%></div>
-            <div><%=platilloView.getDescripcion()%></div>
+    <body>       
+        <div class="container">
+            <div class="header">
+                <%if(usuario.getUsuario().equals("Invitado")){%>
+                   <a href="../Usuario/loginUsuario.html">Entrar</a>
+                <%}else{%>
+                    <p>Bienvenido: <%=usuario.getUsuario()%></p>           
+                <%}%>
+            </div>
+            <div class="info">
+                <div class="infoRestaurante">
+                    <a href="<%=restaurante.getWeb()%>" class="tRestaurante"><%=restaurante.getNombre()%></a>
+                    <p class="letra white"><%=restaurante.getDescripcion()%></p>
+                    <div id="hwt">
+                        <div>
+                            <p class="letra op bold white">Horario</p>
+                            <p class="letra op white"><%=restaurante.getHorario()%></p>
+                        </div>
+                        <div>
+                            <p class="letra op bold white">Correo</p>
+                            <p class="letra op white"><%=restaurante.getCorreo()%></p>    
+                        </div>
+                        <div>
+                            <p class="letra op bold white">Telefono</p>
+                            <p class="letra op white"><%=restaurante.getTelefono()%></p>
+                        </div>
+                    </div>                                      
+                </div>
+                <div class="infoPlatillo">
+                    <img src="../imagenes/imgPlatillos/<%=platilloView.getNombreFoto()%>" alt="platillo" class="tamPlatillo">
+                    <div>
+                        <p class="tPlatillo"><%=platilloView.getNombrePlatillo()%></p>
+                        <p class="letra"><%=platilloView.getDescripcion()%></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ccomentario">
+                <%if(usuario.getUsuario().equals("Invitado")){%>
+                    <p class="text-center">Inicia sesion para dejar un comentario</p>
+                <%}else{%>               
+                    <p class="letra">Queremos conocer tu opinión acerca del platillo. Cuentanos que tal te pareció.</p>
+                    <form action="/ProyectoFinal/ComentarioServlet" method="POST">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="calificacion" id="calificacion" value="0" checked>
+                            <label class="form-check-label" for="calificacion">0</label>
+                          </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="calificacion" id="calificacion" value="1">
+                            <label class="form-check-label" for="calificacion">1</label>
+                          </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="calificacion" id="calificacion" value="2">
+                            <label class="form-check-label" for="calificacion">2</label>
+                          </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="calificacion" id="calificacion" value="3">
+                            <label class="form-check-label" for="calificacion">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="calificacion" id="calificacion" value="4">
+                            <label class="form-check-label" for="calificacion">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="calificacion" id="calificacion" value="5">
+                            <label class="form-check-label" for="calificacion">5</label>
+                        </div>
+                        <br><br>
+                        <textarea id="comentario" name="comentario" rows=5 cols=120 class="letra op"  ></textarea><br><br>
+                        <input type="submit" name="accion" value="Comentar" class="btn btn-outline-dark"/>
+                    </form>
+                <%}%>    
+            </div>
             
-            <h2>Datos del restaurante</h2>
-            <div><%=restaurante.getNombre()%></div>
-            <div><%=restaurante.getDescripcion()%></div>
-            <div><%=restaurante.getHorario()%></div>
-            <div><%=restaurante.getWeb()%></div>
-            <div><%=restaurante.getCorreo()%></div>
-            <div><%=restaurante.getTelefono()%></div>
-            
-            <%if(usuario.getUsuario().equals("Invitado")){%>
-            <h3><a href="../Usuario/loginUsuario.html">Inicia sesion para dejar un comentario</a></h3>
-            <%}else{%>
-                <h2>Deja un comentario</h2>
-                <form action="/ProyectoFinal/ComentarioServlet" method="POST">
-                    <input type="text" name="comentario" id="comentario">
-                    <input type="number" name="calificacion" id="calificacion">
-                    <input type="text" name="idUsuario" id="idUsuario" value="<%=usuario.getIdUsuario()%>" hidden>
-                    <input type="text" name="idPlatillo" id="idPlatillo" value="<%=idPlatillo%>" hidden>
-                    <input type="submit" name="accion" value="Comentar" />
-                </form>
-            <%}%>
-            
-            
-            <h3>Comentarios de este platillo</h3>
-            <%for(ComentarioView c: comentarios){%>
-                <div><%=c.getUsuario()%> dice: <%=c.getComentario()%></div>
-            <%}%>
-        </main>
-        <footer></footer>
+             <%for(ComentarioView c: comentarios){%>
+                <div class="comentario">
+                    <p><%=c.getUsuario()%></p> 
+                    <%for(int i=0; i<c.getCalificacion();i++){%>
+                        <img src="Imagenes/estrella.png" alt="estrellita" class="tamEstrellas">                       
+                    <%}%>
+                    <%for(int i=0; i<5-c.getCalificacion();i++){%>
+                        <img src="Imagenes/vestrella.png" alt="estrellita" class="tamEstrellas">
+                    <%}%>
+                    <p class="letra mt-5"><%=c.getComentario()%></p>
+                </div>                
+            <%}%>                        
+        </div> 
     </body>
 </html>
