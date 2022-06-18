@@ -37,25 +37,28 @@
         <div class="mantel">
             <p class="titulo"><%=categoria%></p>
         </div>
-        <div class="platillos">
-            
-            <%for(int i=0; i<platillos.size(); i++){%>
-                <div class="platillo">
-                    <div class="imgPlatilloContenedor">
-                       
-                    <%String encode = Base64.getEncoder().encodeToString(platillos.get(i).getFoto());%>
-                    <img src="data:image/jpeg;base64,<%=encode%>" class="imgPlatillo"/>
-                        
-                        <!-- 
-                        <img src="../imagenes/imgPlatillos/<%=platillos.get(i).getNombreFoto()%>" alt="platillo" srcset="" class="imgPlatillo">
-                         -->
-                    </div>
-                    <p class="nombrePlatillo"><%=platillos.get(i).getNombrePlatillo()%></p>
-                    <p class="restaurantePlatillo"><%=platillos.get(i).getNombreRestaurante()%></p>
-                    <a href="InfoPlatillo.jsp?idPlatillo=<%=platillos.get(i).getIdPlatillo()%>" class="verPlatillo">Ver info</a>
-                </div> 
-            <%}%>
-        </div>
+        <%if(platillos.size()==0){%>
+           <p class="noplatillos">Por el momento no hay platillos en esta categoria</p>
+        <%}else{%>
+            <div class="platillos">
+                <%for(int i=0; i<platillos.size(); i++){%>
+                    <div class="platillo">
+                        <div class="imgPlatilloContenedor">
+
+                        <%String encode = Base64.getEncoder().encodeToString(platillos.get(i).getFoto());%>
+                        <img src="data:image/jpeg;base64,<%=encode%>" class="imgPlatillo"/>
+
+                            <!-- 
+                            <img src="../imagenes/imgPlatillos/<%=platillos.get(i).getNombreFoto()%>" alt="platillo" srcset="" class="imgPlatillo">
+                             -->
+                        </div>
+                        <p class="nombrePlatillo"><%=platillos.get(i).getNombrePlatillo()%></p>
+                        <p class="restaurantePlatillo"><%=platillos.get(i).getNombreRestaurante()%></p>
+                        <a href="InfoPlatillo.jsp?idPlatillo=<%=platillos.get(i).getIdPlatillo()%>" class="verPlatillo">Ver info</a>
+                    </div> 
+                <%}%>
+            </div>
+        <%}%>
     </div>
 </body>
 </html>

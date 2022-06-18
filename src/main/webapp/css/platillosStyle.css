@@ -75,6 +75,14 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.noplatillos{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: red;
+    text-align: center;
+    width: 100%;
+}
+
+
 .restaurantePlatillo{
     color: gray;
     font-size: small;
