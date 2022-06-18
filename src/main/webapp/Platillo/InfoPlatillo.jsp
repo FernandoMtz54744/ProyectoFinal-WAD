@@ -20,6 +20,7 @@
     
     HttpSession sesion = request.getSession();
     Usuario usuario = (Usuario)sesion.getAttribute("usuario");
+    sesion.setAttribute("idPlatillo", idPlatillo);
     
     if(usuario == null){
         usuario = new Usuario();

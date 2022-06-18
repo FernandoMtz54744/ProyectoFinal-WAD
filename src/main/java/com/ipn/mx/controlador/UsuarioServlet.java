@@ -109,8 +109,9 @@ public class UsuarioServlet extends HttpServlet {
                     //Se sube el usuario a la sesion
                     HttpSession sesion = request.getSession();
                     sesion.setAttribute("usuario", usuarioLogin);
+                    int idPlatillo = (int)sesion.getAttribute("idPlatillo");
                     //Se redirecciona al inicio del usuario
-                    response.sendRedirect(request.getContextPath() + "/");
+                    response.sendRedirect(request.getContextPath() + "/Platillo/InfoPlatillo.jsp?idPlatillo="+idPlatillo);
                 }else{//Login incorrecto
                     response.sendRedirect(request.getContextPath() + "/Usuario/loginUsuario.html");
                 }
