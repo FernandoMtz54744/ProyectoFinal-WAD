@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - Neomorphic Form</title>
-    <link rel='stylesheet' href='https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
-    <link rel="stylesheet" href="./styleUsuario.css">
-
+    <title>Registrar Usuario</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
     <header>
@@ -15,7 +13,7 @@
     <main>
         <form action="/UsuarioServlet">
             <div class="segment">
-                <h1>Registrar Usuario</h1>
+                <h1><center>Registrar Usuario</center></h1>
             </div>
             <label>
                 <input type="text" placeholder="Usuario" />
@@ -26,8 +24,10 @@
             <label>
                 <input type="password" placeholder="Password" />
             </label>
-            <button class="red" type="button" name="accion"><i class="icon ion-md-lock"></i>Registrarse </button>
+            <a class="waves-effect waves-light btn"><input type="submit" name="accion" value="Registrar Usuario" /></a>
             <!--
+            <button class="red" type="button" name="accion"><i class="icon ion-md-lock"></i>Registrarse </button>
+            
     <label for="usuario">Usuario:</label>
     <input type="text" id="usuario" name="usuario" required />
     <label for="correo">Correo</label>
