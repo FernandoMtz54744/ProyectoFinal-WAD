@@ -63,7 +63,10 @@
                     </div>                                      
                 </div>
                 <div class="infoPlatillo">
-                    <img src="../imagenes/imgPlatillos/<%=platilloView.getNombreFoto()%>" alt="platillo" class="tamPlatillo">
+                    <%String encode = Base64.getEncoder().encodeToString(platilloView.getFoto());%>
+                    <img src="data:image/jpeg;base64,<%=encode%>" class="tamPlatillo" alt="platillo"/>
+                    <!--<img src="../imagenes/imgPlatillos/Aqui va NombreFoto" alt="platillo" class="tamPlatillo">-->
+                    
                     <div>
                         <p class="tPlatillo"><%=platilloView.getNombrePlatillo()%></p>
                         <p class="letra"><%=platilloView.getDescripcion()%></p>
@@ -77,6 +80,8 @@
                 <%}else{%>               
                     <p class="letra">Queremos conocer tu opinión acerca del platillo. Cuentanos que tal te pareció.</p>
                     <form action="/ProyectoFinal/ComentarioServlet" method="POST">
+                        <input type="text" name="idUsuario" id="idUsuario" value="<%=usuario.getIdUsuario()%>" hidden>
+                        <input type="text" name="idPlatillo" id="idPlatillo" value="<%=idPlatillo%>" hidden>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="calificacion" id="calificacion" value="0" checked>
                             <label class="form-check-label" for="calificacion">0</label>
@@ -112,10 +117,10 @@
                 <div class="comentario">
                     <p><%=c.getUsuario()%></p> 
                     <%for(int i=0; i<c.getCalificacion();i++){%>
-                        <img src="Imagenes/estrella.png" alt="estrellita" class="tamEstrellas">                       
+                    <img src="../imagenes/estrella.png" alt="estrellita" class="tamEstrellas">                       
                     <%}%>
                     <%for(int i=0; i<5-c.getCalificacion();i++){%>
-                        <img src="Imagenes/vestrella.png" alt="estrellita" class="tamEstrellas">
+                    <img src="../imagenes/vestrella.png" alt="estrellita" class="tamEstrellas">
                     <%}%>
                     <p class="letra mt-5"><%=c.getComentario()%></p>
                 </div>                

@@ -38,12 +38,13 @@
             <%for(int i=0; i<platillos.size(); i++){%>
                 <div class="platillo">
                     <div class="imgPlatilloContenedor">
-                        <!-- 
-                            <%/*String encode = Base64.getEncoder().encodeToString(platillos.get(i).getFoto());*/%>
-                            <img src="data:image/jpeg;base64,aqui iba directiva" class="imgPlatillo"/>
-                        -->
+                       
+                    <%String encode = Base64.getEncoder().encodeToString(platillos.get(i).getFoto());%>
+                    <img src="data:image/jpeg;base64,<%=encode%>" class="imgPlatillo"/>
                         
+                        <!-- 
                         <img src="../imagenes/imgPlatillos/<%=platillos.get(i).getNombreFoto()%>" alt="platillo" srcset="" class="imgPlatillo">
+                         -->
                     </div>
                     <p class="nombrePlatillo"><%=platillos.get(i).getNombrePlatillo()%></p>
                     <p class="restaurantePlatillo"><%=platillos.get(i).getNombreRestaurante()%></p>
