@@ -11,18 +11,18 @@
         
     </header>
     <main>
-        <form action="/UsuarioServlet">
+        <form action="/UsuarioServlet" method="POST">
             <div class="segment">
                 <h1><center>Registrar Usuario</center></h1>
             </div>
             <label>
-                <input type="text" placeholder="Usuario" />
+                <input type="text" placeholder="Usuario" name="usuario" id="usuario"/>
             </label>
             <label>
-                <input type="email" placeholder="Correo Electronico" />
+                <input type="email" placeholder="Correo Electronico" name="correo" id="correo"/>
             </label>
             <label>
-                <input type="password" placeholder="Password" />
+                <input type="password" placeholder="Password" name="pass" id="pass"/>
             </label>
             <a class="waves-effect waves-light btn"><input type="submit" name="accion" value="Registrar Usuario" /></a>
             <!--
